@@ -11,12 +11,6 @@
 
 const int INDEX_SIZE = 10000;
 
-/*struct Text
-{
-    const char** index;
-    size_t nlines;
-};*/
-
 size_t ReadFile(const char* name, char* buffer, const char* index[], size_t SIZE);
 void PrintFile(const char* index[], size_t nlines, const char* message);
 
