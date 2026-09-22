@@ -8,7 +8,6 @@
 #include "MyString.h"
 #include "Sorters.h"
 #include "comparators.h"
-//const char* s0 = "Hello";
 
 const int INDEX_SIZE = 10000;
 
