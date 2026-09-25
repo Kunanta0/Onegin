@@ -9,9 +9,9 @@ Onegin is a program, which reads input file, sorts it by alphabet from start and
 
 1. Clone repository: 
   enter in command line: git clone https://github.com/Kunanta0/Onegin.git
-  2.1 Open **c** compilator:
+2. Open **c** compilator:
   use **path** in command line to the folder with compilator
-  2.2 You can open it from IDE too.
+3. You can open it from IDE too (instead of points 1 - 2).
 
 ## Using
 
@@ -21,7 +21,7 @@ Onegin is a program, which reads input file, sorts it by alphabet from start and
   enter "g++ main.cpp -o <.exe file to open, auto - a.exe>"
 3. Run project:
   enter "<path to .exe file>"
-4. You can just run project in IDE
+4. You can just run project in IDE (instead 1-3)
 
 ## Project structure
 
