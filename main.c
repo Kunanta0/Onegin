@@ -32,11 +32,11 @@ int main(void)
     size_t length = 0;
     size_t nlines = ReadFile(filename, buffer, SIZE, &length);
 
-    const char** index = (const char**)calloc(nlines, sizeof(char*));
-    const char** copy_index = (const char**)calloc(nlines, sizeof(char*));// выделение динамической памяти, ошибка*/
+    //const char** index = calloc(nlines, sizeof(char*));
+    //const char** copy_index = calloc(nlines, sizeof(char*));// выделение динамической памяти, ошибка*/
 
-    /*const char* index[INDEX_SIZE] = {};//массив постоянного размера, работает
-    const char* copy_index[INDEX_SIZE] = {};*///
+    const char* index[INDEX_SIZE] = {};//массив постоянного размера, работает
+    const char* copy_index[INDEX_SIZE] = {};
 
     FillIndex(buffer, index, length);
 
@@ -53,8 +53,8 @@ int main(void)
 
     PrintFile(copy_data, "Original Onegin");
 
-    free(index);
-    free(copy_index); //освобождение памяти*/
+    //free(index);
+    //free(copy_index); //освобождение памяти*/
 
     return 0;
 }
