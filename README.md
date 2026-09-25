@@ -9,9 +9,9 @@ Onegin is a program, which reads input file, sorts it by alphabet from start and
 
 1. Clone repository: 
   enter in command line: git clone https://github.com/Kunanta0/Onegin.git
-2.1 Open **c** compilator:
+  2.1 Open **c** compilator:
   use **path** in command line to the folder with compilator
-2.2 You can open it from IDE too.
+  2.2 You can open it from IDE too.
 
 ## Using
 
