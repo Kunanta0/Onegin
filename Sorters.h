@@ -1,9 +1,10 @@
 #ifndef SORTERS_H_INCLUDED
 #define SORTERS_H_INCLUDED
 
+#define QUICK_SORT(data, length, SIZE, CompareFunc) QuickSort((data), (length), (SIZE), (CompareFunc), 0)
 void Swap(void*, void*, size_t);
 void BubbleSort(void*, size_t, size_t, int (*CompareFunc) (const void*, const void*));
-//void QuickSort(void*, size_t, size_t, int (*CompareFunc) (const void*, const void*), size_t);
+void QuickSort(void*, size_t, size_t, int (*CompareFunc) (const void*, const void*), size_t);
 
 void Swap(void* value_1, void* value_2, size_t SIZE)
 {
@@ -16,7 +17,7 @@ void Swap(void* value_1, void* value_2, size_t SIZE)
     free(temp);
 }
 
-/*void QuickSort(void* data, size_t length, size_t SIZE, int (*CompareFunc) (const void* a, const void* b), size_t low_index = 0)
+void QuickSort(void* data, size_t length, size_t SIZE, int (*CompareFunc) (const void* a, const void* b), size_t low_index)
 {
     char* arr = (char *) data;
     size_t high_index = length - 1;
@@ -38,7 +39,7 @@ void Swap(void* value_1, void* value_2, size_t SIZE)
     Swap(arr + i * SIZE, pivot, SIZE);
     if (i != 0) QuickSort(arr, i, SIZE, CompareFunc, low_index);
     QuickSort(arr, high_index + 1, SIZE, CompareFunc, i + 1);
-}*/
+}
 
 void BubbleSort(void* data, size_t nnums, size_t SIZE, int (*CompareFunc) (const void* a, const void* b))
 {
