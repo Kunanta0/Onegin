@@ -48,7 +48,7 @@ int main(void)
     qsort(data.index, data.nlines, sizeof(char*), CompareStrsStart);
     PrintFile(data, "qsort() CompareStrsStart");
 
-    QUICK_SORT(data.index, data.nlines, sizeof(char*), CompareStrsEnd);
+    QSort(data.index, data.nlines, sizeof(char*), CompareStrsEnd);
     PrintFile(data, "BubbleSort() CompareStrsEnd");
 
     PrintFile(copy_data, "Original Onegin");
