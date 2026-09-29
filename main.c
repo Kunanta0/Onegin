@@ -49,7 +49,7 @@ int main(void)
     PrintFile(data, "qsort() CompareStrsStart");
 
     QSort(data.index, data.nlines, sizeof(char*), CompareStrsEnd);
-    PrintFile(data, "BubbleSort() CompareStrsEnd");
+    PrintFile(data, "QSort() CompareStrsEnd");
 
     PrintFile(copy_data, "Original Onegin");
 
