@@ -24,7 +24,7 @@ int main(void)
 {
     size_t SIZE = GetSize("Eugene_Onegin.txt");
     size_t length = 0, nlines = 0;
-    char* buffer = (char*)calloc(SIZE + 1, sizeof(char));
+    char* buffer = (char*)calloc(SIZE, sizeof(char));
 
     ReadFile("Eugene_Onegin.txt", SIZE, &length, buffer);
 
