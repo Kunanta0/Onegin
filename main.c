@@ -1,3 +1,8 @@
+/**
+*\file
+*\brief file with main function
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -9,15 +14,41 @@
 #include "Sorters.h"
 #include "comparators.h"
 
+///this structure contains array of strings (pointers to them) and its size
 struct Text
 {
     char** index;
     size_t nlines;
 };
 
+/**
+*this function reads file with name "name" to buffer "buffer"
+*\param[in] name name of file
+*\param[in] SIZE buffer's size
+*\param[in,out] length real buffer's length (without "\r" in Windows)
+*\param[out] buffer buffer with text from file
+*/
 void ReadFile(const char* name, size_t SIZE, size_t* length, char* buffer);
+
+/**
+*this function reads file with name "name" to buffer "buffer"
+*\param[out] data structure with info
+*\param[out] message helpful message to print to file
+*/
 void PrintFile(struct Text data, const char* message);
+
+/**
+*this function fills array of strings
+*\param[in] buffer buffer with text from file
+*\param[in,out] length real buffer's length (without "\r" in Windows)
+*\param[out] nlines number of no empty lines in file
+*/
 char** FillIndex(char* buffer, size_t length, size_t* nlines);
+
+/**
+*this function uses stat to know file's size without opening
+*\param[out] name name of file
+*/
 size_t GetSize(const char* name);
 
 int main(void)
