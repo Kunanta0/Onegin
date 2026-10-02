@@ -1,11 +1,26 @@
 #ifndef MYSTRING_H_INCLUDED
 #define MYSTRING_H_INCLUDED
 
+///analog of library function "puts"
 int Puts(const char*);
+
+///analog of library function "strlen"
 size_t Strlen(const char*);
+
+///analog of library function "strcpy"
 char* Strcpy(char* , const char* );
+
+///analog of library function "strcat"
 char* Strcat(char*, const char*);
+
+///analog of library function "strcmp"
 int Strcmp(const char*, const char*);
+
+/**
+*this function prints array of integer elements
+*\param[in,out] arr array which we need to print
+*\param[in] SIZE size of array
+*/
 void PrintArr(int*, size_t);
 
 void PrintArr(int* arr, size_t SIZE)
