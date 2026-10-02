@@ -1,9 +1,22 @@
+/**
+*\file
+*\brief Header with Sorters
+*/
+
 #ifndef SORTERS_H_INCLUDED
 #define SORTERS_H_INCLUDED
 
+///changes two elements with size bytes ones
 void Swap(void*, void*, size_t);
+
+///sorts array with algorithm "bubble sort"
 void BubbleSort(void*, size_t, size_t, int (*CompareFunc) (const void*, const void*));
+
+///sorts array with algorithm of quick sort
 void QuickSort(void*, size_t, size_t, int (*CompareFunc) (const void*, const void*), size_t);
+
+///function wrapper for QuickSort()
+void QSort(void*, size_t, size_t, int (*CompareFunc) (const void*, const void*));
 
 void Swap(void* value_1, void* value_2, size_t SIZE)
 {
