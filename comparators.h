@@ -1,9 +1,22 @@
+/**
+*\file
+*\brief Header with comparators
+*all functions here accepts two parameters which we need to compare
+*/
+
 #ifndef COMPARATORS_H_INCLUDED
 #define COMPARATORS_H_INCLUDED
 
+///function compares integer numbers in ascending order
 int CompareUp(const void*, const void*);
+
+///function compares integer numbers in descending order
 int CompareDown(const void*, const void*);
+
+///function compares strings by alphabet skipping non-alpha symbols
 int CompareStrsStart(const void*, const void*);
+
+///function compares strings by alphabet from the end skipping non-alpha symbols
 int CompareStrsEnd(const void*, const void*);
 
 int CompareUp(const void* value_a, const void* value_b)
