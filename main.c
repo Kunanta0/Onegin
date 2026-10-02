@@ -7,11 +7,7 @@
 #include <sys/stat.h>
 #include "MyString.h"
 #include "Sorters.h"
-#include <assert.h>
-
 #include "comparators.h"
-
-const int INDEX_SIZE = 10000;
 
 struct Text
 {
