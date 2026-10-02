@@ -69,13 +69,13 @@ char** FillIndex(char* buffer, size_t length, size_t* nlines)
         if ((*(buffer + i) == '\n') && (i + 1 < length))
         {
             *(buffer + i) = '\0';
-            (*nlines) += 1;
+            if (buffer[i + 1] == '\n') --(*nlines);
+            ++(*nlines);
         }
     }
-    *(buffer + length) = '\0';
-    size_t str_size = strlen(buffer);
+    ++(*nlines);
 
-    char** index = calloc((*nlines), sizeof(char*));
+    char** index = calloc((*nlines) + 1, sizeof(char*));
 
     int current_line = 0;
     index[0] = buffer;
@@ -88,7 +88,6 @@ char** FillIndex(char* buffer, size_t length, size_t* nlines)
             index[++current_line] = buffer + i + 1;
         }
     }
-    *nlines = current_line;
 
     return index;
 }
