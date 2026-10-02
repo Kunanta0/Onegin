@@ -7,43 +7,34 @@
 #include <sys/stat.h>
 #include "MyString.h"
 #include "Sorters.h"
+#include <assert.h>
+
 #include "comparators.h"
 
 const int INDEX_SIZE = 10000;
 
 struct Text
 {
-    const char** index;
+    char** index;
     size_t nlines;
 };
 
-size_t ReadFile(const char* name, char* buffer, size_t SIZE, size_t* length);
+void ReadFile(const char* name, size_t SIZE, size_t* length, char* buffer);
 void PrintFile(struct Text data, const char* message);
-void FillIndex(char* buffer, const char* index[], size_t length);
+char** FillIndex(char* buffer, size_t length, size_t* nlines);
+size_t GetSize(const char* name);
 
 int main(void)
 {
-    struct stat file_info;
-    const char* filename = "Eugene_Onegin.txt";
-    stat(filename, &file_info);
-    size_t SIZE = file_info.st_size;
+    size_t SIZE = GetSize("Eugene_Onegin.txt");
+    size_t length = 0, nlines = 0;
+    char* buffer = (char*)calloc(SIZE + 1, sizeof(char));
 
-    char buffer[SIZE + 1] = {};
-    size_t length = 0;
-    size_t nlines = ReadFile(filename, buffer, SIZE, &length);
+    ReadFile("Eugene_Onegin.txt", SIZE, &length, buffer);
 
-    //const char** index = calloc(nlines, sizeof(char*));
-    //const char** copy_index = calloc(nlines, sizeof(char*));// выделение динамической памяти, ошибка*/
-
-    const char* index[INDEX_SIZE] = {};//массив постоянного размера, работает
-    const char* copy_index[INDEX_SIZE] = {};
-
-    FillIndex(buffer, index, length);
-
-    memcpy(copy_index, index, nlines * sizeof(char*));
+    char** index = FillIndex(buffer, length, &nlines);
 
     struct Text data = {index, nlines};
-    struct Text copy_data = {copy_index, nlines};
 
     qsort(data.index, data.nlines, sizeof(char*), CompareStrsStart);
     PrintFile(data, "qsort() CompareStrsStart");
@@ -51,51 +42,59 @@ int main(void)
     QSort(data.index, data.nlines, sizeof(char*), CompareStrsEnd);
     PrintFile(data, "QSort() CompareStrsEnd");
 
-    PrintFile(copy_data, "Original Onegin");
+    qsort(data.index, data.nlines, sizeof(char*), CompareUp);
 
-    //free(index);
-    //free(copy_index); //освобождение памяти*/
+    PrintFile(data, "Original Onegin");
+
+    free(index);
+    free(buffer);
 
     return 0;
 }
+size_t GetSize(const char* filename)
+{
+    struct stat file_info;
+    stat(filename, &file_info);
+    size_t SIZE = file_info.st_size;
+    return SIZE;
+}
 
-size_t ReadFile(const char* name, char* buffer, size_t SIZE, size_t* length)
+void ReadFile(const char* name, size_t SIZE, size_t* length, char* buffer)
 {
     FILE* input_file = fopen(name, "r");
     *length = fread(buffer, sizeof(char), SIZE, input_file);
     fclose(input_file);
-
-    size_t current_line = 0;
-
-    for (size_t i = 0; i < *length; ++i)
-    {
-        if (*(buffer + i) == '\n')
-        {
-            *(buffer + i) = '\0';
-            if (i + 1 < *length)
-            {
-                if (*(buffer + i + 1) == '\n') ++i;
-                ++current_line;
-            }
-        }
-    }
-
-    return current_line;
 }
 
-void FillIndex(char* buffer, const char* index[], size_t length)
+char** FillIndex(char* buffer, size_t length, size_t* nlines)
 {
-    size_t current_line = 0;
+    for (size_t i = 0; i < length; ++i)
+    {
+        if ((*(buffer + i) == '\n') && (i + 1 < length))
+        {
+            *(buffer + i) = '\0';
+            (*nlines) += 1;
+        }
+    }
+    *(buffer + length) = '\0';
+    size_t str_size = strlen(buffer);
+
+    char** index = calloc((*nlines), sizeof(char*));
+
+    int current_line = 0;
     index[0] = buffer;
 
     for (size_t i = 0; i < length; ++i)
     {
         if ((*(buffer + i) == '\0') && (i + 1 < length))
         {
-            if (*(buffer + i + 1) == '\n') ++i;
+            if (*(buffer + i + 1) == '\0') ++i;
             index[++current_line] = buffer + i + 1;
         }
     }
+    *nlines = current_line;
+
+    return index;
 }
 
 void PrintFile(struct Text data, const char* message)
