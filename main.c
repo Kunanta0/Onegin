@@ -10,40 +10,47 @@
 #include <ctype.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+
+///this structure contains array of strings (pointers to them) and theirs length
+typedef struct
+{
+    char* line;
+    size_t length;
+} Line;
+
 #include "MyString.h"
 #include "Sorters.h"
 #include "comparators.h"
-
-///this structure contains array of strings (pointers to them) and its size
-struct Text
-{
-    char** index;
-    size_t nlines;
-};
 
 /**
 *this function reads file with name "name" to buffer "buffer"
 *\param[in] name name of file
 *\param[in] SIZE buffer's size
-*\param[in,out] length real buffer's length (without "\r" in Windows)
 *\param[out] buffer buffer with text from file
 */
-void ReadFile(const char* name, size_t SIZE, size_t* length, char* buffer);
+size_t ReadFile(const char* name, size_t SIZE, char* buffer);
+
+/**
+*this function reads number of not empty lines in "buffer" with size "length"
+*\param[in,out] buffer buffer with text from file
+*\param[in,out] length size of file
+*/
+size_t GetLines(char* buffer, size_t length);
 
 /**
 *this function reads file with name "name" to buffer "buffer"
 *\param[out] data structure with info
 *\param[out] message helpful message to print to file
 */
-void PrintFile(struct Text data, const char* message);
+void PrintFile(Line* text, size_t nlines, const char* message);
 
 /**
-*this function fills array of strings
-*\param[in] buffer buffer with text from file
-*\param[in,out] length real buffer's length (without "\r" in Windows)
-*\param[out] nlines number of no empty lines in file
+*this function fills array of structure with lines
+*\param[in,out] buffer buffer with text from file
+*\param[out] length size of file
+*\param[out] nlines number of non-empty lines
 */
-char** FillIndex(char* buffer, size_t length, size_t* nlines);
+Line* FillIndex(char* buffer, size_t length, size_t* nlines);
 
 /**
 *this function uses stat to know file's size without opening
@@ -54,26 +61,27 @@ size_t GetSize(const char* name);
 int main(void)
 {
     size_t SIZE = GetSize("Eugene_Onegin.txt");
-    size_t length = 0, nlines = 0;
+    size_t nlines = 0;
     char* buffer = (char*)calloc(SIZE, sizeof(char));
 
-    ReadFile("Eugene_Onegin.txt", SIZE, &length, buffer);
+    size_t length = ReadFile("Eugene_Onegin.txt", SIZE, buffer);
+    buffer[length] = '\0';
+    printf("%s", buffer);
 
-    char** index = FillIndex(buffer, length, &nlines);
+    Line* text = FillIndex(buffer, length, &nlines);
+    //printf("%d", nlines);
 
-    struct Text data = {index, nlines};
+    qsort(text, nlines, sizeof(Line), CompareStrsStart);
+    PrintFile(text, nlines, "qsort() CompareStrsStart");
 
-    qsort(data.index, data.nlines, sizeof(char*), CompareStrsStart);
-    PrintFile(data, "qsort() CompareStrsStart");
+    QSort(text, nlines, sizeof(Line), CompareStrsEnd);
+    PrintFile(text, nlines, "QSort() CompareStrsEnd");
 
-    QSort(data.index, data.nlines, sizeof(char*), CompareStrsEnd);
-    PrintFile(data, "QSort() CompareStrsEnd");
+    qsort(text, nlines, sizeof(Line), CompareUp);
 
-    qsort(data.index, data.nlines, sizeof(char*), CompareUp);
+    PrintFile(text, nlines, "Original Onegin");
 
-    PrintFile(data, "Original Onegin");
-
-    free(index);
+    free(text);
     free(buffer);
 
     return 0;
@@ -86,48 +94,61 @@ size_t GetSize(const char* filename)
     return SIZE;
 }
 
-void ReadFile(const char* name, size_t SIZE, size_t* length, char* buffer)
+size_t GetLines(char* buffer, size_t length)
+{
+    size_t nlines = 0;
+    for (size_t i = 0; i < length; ++i)
+    {
+        if (buffer[i] == '\n')
+        {
+            buffer[i] = '\0';
+            if (buffer[i + 1] == '\n') --nlines;
+            ++nlines;
+        }
+    }
+    ++nlines;
+
+    return nlines;
+}
+
+size_t ReadFile(const char* name, size_t SIZE, char* buffer)
 {
     FILE* input_file = fopen(name, "r");
-    *length = fread(buffer, sizeof(char), SIZE, input_file);
+    size_t length = fread(buffer, sizeof(char), SIZE, input_file);
     fclose(input_file);
+    return length;
 }
 
-char** FillIndex(char* buffer, size_t length, size_t* nlines)
+Line* FillIndex(char* buffer, size_t length, size_t* nlines)
 {
-    for (size_t i = 0; i < length; ++i)
-    {
-        if ((*(buffer + i) == '\n') && (i + 1 < length))
-        {
-            *(buffer + i) = '\0';
-            if (buffer[i + 1] == '\n') --(*nlines);
-            ++(*nlines);
-        }
-    }
-    ++(*nlines);
+    *nlines = GetLines(buffer, length);
 
-    char** index = calloc((*nlines) + 1, sizeof(char*));
+    Line* lines = calloc((*nlines) + 1, sizeof(Line));
 
     int current_line = 0;
-    index[0] = buffer;
+    lines[0].line = buffer;
+    size_t previous_length = 0;
 
     for (size_t i = 0; i < length; ++i)
     {
-        if ((*(buffer + i) == '\0') && (i + 1 < length))
+        if (buffer[i] == '\0')
         {
-            if (*(buffer + i + 1) == '\0') ++i;
-            index[++current_line] = buffer + i + 1;
+            lines[current_line].length = i - previous_length;
+            if (buffer[i + 1] == '\0') ++i;
+            lines[++current_line].line = buffer + i + 1;
+            if (i == length) lines[current_line].length = length - previous_length;
+            previous_length = i;
         }
     }
 
-    return index;
+    return lines;
 }
 
-void PrintFile(struct Text data, const char* message)
+void PrintFile(Line* text, size_t nlines, const char* message)
 {
     FILE* fo = fopen("output.txt", "a");
     fprintf(fo, "%s\n\n", message);
-    for (size_t i = 0;i < data.nlines;++i) fprintf(fo, "%s\n", data.index[i]);
+    for (size_t i = 0; i < nlines; ++i) fprintf(fo, "%s\n", text[i].line);
 
     fprintf(fo, "\n************************************************************************************************\n\n");
 
