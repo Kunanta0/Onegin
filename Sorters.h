@@ -35,7 +35,7 @@ void QSort(void* data, size_t length, size_t SIZE, int (*CompareFunc) (const voi
 }
 void QuickSort(void* data, size_t length, size_t SIZE, int (*CompareFunc) (const void* a, const void* b), size_t low_index)
 {
-    char* arr = (char *) data;
+    char* arr = (char*) data;
     size_t high_index = length - 1;
     if (low_index >= high_index) return;
 
