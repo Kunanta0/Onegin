@@ -1,8 +1,9 @@
 qsort() CompareStrsStart
 
 ………………….. 	………………….. 	…………………..
-………………….. 	………………….. 	…………………..
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+………………….. 	………………….. 	…………………..
+
 A bee to fields, of tribute well,
 A bloody roast-beef is given, And truffles, splendour of teenage,
 A book at mornings here read...
@@ -343,9 +344,9 @@ And we adored, like in a dream, Some song of horn and man, such bold...
 And we... with nothing can we shine, We all to see you are adoring.
 And what?
 And what?
-And what.
-And what?
 And what? -
+And what?
+And what.
 And what can give me fate of mine?’
 And what for is can now lurid?
 And what insidiousness you show, When you amuse a man half dead
@@ -3153,12 +3154,12 @@ XX
 XX
 XXI
 XXI
-XXI
-XXI
-XXI
-XXI
-XXI
 XX I
+XXI
+XXI
+XXI
+XXI
+XXI
 XXII
 XXII
 XXII
@@ -3386,7 +3387,8 @@ Zhookovsky
 
 ************************************************************************************************
 
-BubbleSort() CompareStrsEnd
+QSort() CompareStrsEnd
+
 
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 Him call to sit to samovar, And Doonya quickly gives him tea,
@@ -4689,44 +4691,26 @@ In own dreams all’s being lost For long Tatyana goes forth.
 Then they estimated Each one another; daily forth
 With waves I wished myself somehow To touch her dear feet by mouth.
 Annoyance? bustle? or anew Some love - the trouble of the youth?
-But I
-I
-I
-I
-I
-I
-I
-I
 II
 II
 II
-II
-II
-II
-II
-III
-III
-III
-III
-III
-III
-III
-LIII
-LIII
 XLIII
+LIII
+LIII
 XLIII
 XLIII
 XLIII
 XLIII
 XLUIII
+XLVIII
+XLVIII
+XLVIII
+VIII
 LVIII
+XVIII
 VIII
 VIII
 VIII
-VIII
-XLVIII
-XLVIII
-XLVIII
 VIII
 VIII
 XVIII
@@ -4735,7 +4719,7 @@ XVIII
 XVIII
 XVIII
 XVIII
-XVIII
+XXXVIII
 XXVIII
 XXVIII
 XXVIII
@@ -4747,20 +4731,15 @@ XXVIII
 XXXVIII
 XXXVIII
 XXXVIII
-XXXVIII
+XIII
+XXIII
+XXIII
 XIII
 XIII
 XIII
 XIII
 XIII
 XIII
-XIII
-XXIII
-XXIII
-XXIII
-XXIII
-XXIII
-XXIII
 XXIII
 XXIII
 XXXIII
@@ -4772,39 +4751,49 @@ XXXIII
 XXXIII
 XXXIII
 XXXIII
-XYIII
+XXIII
+XXIII
+XXIII
+XXIII
 YIII
+III
+III
+III
+III
+III
+III
+III
+XYIII
+XLII
+XLII
+XLII
 LII
+XLII
 LII
 XLII
 XLII
-XLII
-XLII
-XLII
-XLII
+VII
+VII
+VII
+II
+II
+VII
+II
 I, II, III, IV, V, VI, VII
 LVII
-VII
-VII
-VII
-VII
-VII
-VII
 XLVII
 XLVII
 XLVII
-VII
 XVII
-XVII
+VII
+VII
 XV, XVI, XVII
+XXVII
+XVII
+XXVII
 XVII
 XVII
 XVII
-XXVII
-XXVII
-XXVII
-XXVII
-XXVII
 XXVII
 XXXVI, XXXVII
 XXXVII
@@ -4813,6 +4802,10 @@ XXXVII
 XXXVII
 XXXVII
 XXXVII
+XXVII
+XXVII
+XXVII
+VII
 XII
 XII
 XII
@@ -4820,11 +4813,11 @@ XII
 XII
 XII
 XII
-XII
+XXXII
 XXII
 XXII
 XXII
-XXII
+XXXII
 XXII
 XXII
 XXII
@@ -4835,35 +4828,51 @@ XXXII
 XXXII
 XXXII
 XXXII
-XXXII
-XXXII
+XXII
+II
+XII
+XYII
+XYII
 XXYII
-XYII
-XYII
 LI
-LI
-LI
-LI
-XLI
-XLI
 XLI
 XLI
 XXXIX, XL, XLI ………………….. 	………………….. 	…………………..
 XLI
 XLI
-LVI
-VI
-VI
-VI
-VI
-VI
-VI
+XLI
+LI
+LI
+LI
+XLI
+But I
+XLVI
+XLVI
 XLVI
 XLVI
 XLVI1
 XLVI
-XLVI
-XLVI
+VI
+VI
+VI
+LVI
+VI
+VI
+VI
+XXVI
+XXVI
+XXVI
+XXVI
+XXVI
+XXXVI
+XXXVI
+XXXVI
+XXXVI
+XXXVI
+XXXVI
+XXXVI
+XXVI
+XXVI
 VI
 XVI
 XVI
@@ -4871,45 +4880,38 @@ XVI
 XVI
 XVI
 XVI
-XXVI
-XXVI
-XXVI
-XXVI
-XXVI
-XXVI
-XXVI
-XXXVI
-XXXVI
-XXXVI
-XXXVI
-XXXVI
-XXXVI
-XXXVI
+XI
+I
 XI
 XI
 XI
 XI
 XI
 XI
+I
 XI
+I
+I
+I
 XI
-XI
-XXI
-XXI
-XXI
-XXI
-XXI
+XXXI
+XXXI
+XXXI
+XXXI
 XXI
 XXI
 XX I
 XXXI
 XXXI
+XXI
+XXI
+XXI
+XXI
+XXI
 XXXI
 XXXI
-XXXI
-XXXI
-XXXI
-XXXI
+I
+I
 Let me look back.
 At home he took out pistols To check them up, then put them back
 But if the age is late and fruitless At natural turn of life for rack,
@@ -4978,93 +4980,92 @@ She feels herself like all her dear Of books beloved main persons feel:
 Induce to have a stop, inviting In front of their charms to kneel.
 Are blessed the troubles of the day, Is blessed the darkness of the gravel
 Sometimes she’s talkative or dumb, In secret gondola I’ll travel
+L
 First time appeared at the rim Of outlines of my free novel.
 By night’s benevolent light breathing We mutely reveled and could fail!
+Of all the charming for the bail And would be happy... till I fail!
+While she’s by tinsel gown waving In front of her some throng to hail;
 He doesn’t go, ready now To write to ancestors: to hail
 And many pages yet are keeping Some sharpened markings by the nail;
 In front of tenderness quite plain, In front of soul playful, frail...
 But where of Melpomen heavy Resounds fine and drawling wail,
+Like victim under charming veil.
 And he returned just to the hall Like Chatsky: from the ship for ball.
 I’d like to use the Alban’s model: In Petersburg to show ball.
 It’s true, that all we live in ages, When rather boring is high call.
 It serves him right: to think if strictly, If secret judge for him to call,
 Is being deaf and dumb at all To sad and desperate your call?
+Of younger beauties generation Will follow the journal’s call:
+You listen to my grievous call:
 Arise and ripen, then will fall, And others after them come all,
 Are you the same, or others dared To change, replace you there all?
 His genius was unique, alone, He knew of something best of all,
 But send your boy, and first of all’ .
 Her summer shoes quite wet through all; Then she her handkerchief lets fall.
 It’s in the backwoods and it all Is bound by the snow-fall,
+The snowflakes are flashing, whirl, Like stars at river’s banks they fall.
 As he indifferently could yawn Inside antique or modern hall.
+Was not astonished at the dawn To see him coining to his hall;
 Importantly repeats for doll The mother’s lessons, though small.
 He mutely bowed to the girl, His gaze somehow was in all
 About Lensky’s wedding all Were sure neighbours once for all.
 At own billiard with two balls He played from morning one for all.
+The rest all gathered at the hail: Of ball the beuaty shines for all.
 Described for us the snowfall, {l5} The winter’s bliss and tinges all:
 For theatre Onegin’s speeding. In it each man is free at all:
+To tell you all, what he had known, I haven’t any time at all.
+They call, And no reason, even gappy, You have for not to come at all.-
 About news and fashions dear With dolls she didn’t talk at all,
+Such acts insulted neighbours all, They stopped to come to him at all.
 He was to blame at times more thickly: At first, he wasn’t right at all
 But you are pale... What are you feeling? ‘It’s nothing, nanny, not at all.
 And flitting quickly snow-storm Is shining, whirling. But at all
 But suddenly was changed it all:
 At the beginning of my novel — (In chapter first you look it all)
+The jams, eternal talk of all: Of rain, of flax, of horses’ stall…’
+The first he made - he left you all;
 Healthy all...
 For long Tatyana here goes At stylish fascinating cell.
 Is flying from the waxy cell.
 I’m sorry that you go… well, My dear Lensky, will you tell,
+To challenge you could try like hell? But in your soul can you tell
 Fare thee well, and if for ever 							Still for ever, fare thee well.
 But Eugene was beyond conception: Of course, he knew the people well,
 A bee to fields, of tribute well,
-Behind the mill.
-By deep embarrassment fulfilled She has to stop, she’s standing still.
-It all is still.
-Clarissa, Julie and Delphina; Tatyana in the forest’s still
-As I to loose my freedom feared Which’s hateful to my own will.
-L
-‘But how are Tatyana, neighbours, And Olga, frisky pretty girl?’
-His heart was sad, his voice was mournful.
-‘Ah, poor Yorick, said he, joyful
-Its worth of fine and charming soul,
-L
-L
-Of all the charming for the bail And would be happy... till I fail!
-While she’s by tinsel gown waving In front of her some throng to hail;
-Like victim under charming veil.
-Of younger beauties generation Will follow the journal’s call:
-You listen to my grievous call:
-The snowflakes are flashing, whirl, Like stars at river’s banks they fall.
-Was not astonished at the dawn To see him coining to his hall;
-The rest all gathered at the hail: Of ball the beuaty shines for all.
-To tell you all, what he had known, I haven’t any time at all.
-They call, And no reason, even gappy, You have for not to come at all.-
-Such acts insulted neighbours all, They stopped to come to him at all.
-The jams, eternal talk of all: Of rain, of flax, of horses’ stall…’
-The first he made - he left you all;
-To challenge you could try like hell? But in your soul can you tell
 Will pass away more fast, they tell, And you will pass the winter well.
 She went and went.., All of a sudden Sees manor-house from a hill,
 Much longer now she is hiking, But now brook and now hill
+Behind the mill.
 The sledge for race is now ready, In it he’s flying to the mill;
 Like in a dreadful misty dream Against each other in the still
 The waters Are still.
+By deep embarrassment fulfilled She has to stop, she’s standing still.
 You alone Among anxieties in still
+It all is still.
+Clarissa, Julie and Delphina; Tatyana in the forest’s still
 Of puffing to my face the spring In bosom of the country’s still!
+As I to loose my freedom feared Which’s hateful to my own will.
 Yet being child, at any year Tatyana didn’t play with doll;
 Of interest she is now full And tries herself the door to pull…
 L
+L
 Sometimes himself, not as a rule, Could he entrapped like real fool;
 Well, may he all it is by now The fraud of innocent young girl
+‘But how are Tatyana, neighbours, And Olga, frisky pretty girl?’
 The memory of bard, yet youthful, Will sink into oblivion truthful,
 Lets attract. brave fellow To the chorus merriful,
 On old prejudices harmful, Eternal secret tombs alarmful,
 Opinion of the public mournful!
 Which are half-funny and half-mournful,
+His heart was sad, his voice was mournful.
 To you I’m greatful!
 Which was for him from time of childhood Like work and torment, was delightful,
 Now spiteful, Like in vendetta they are frightful,
 Of common thinking, somewhat thoughtful,
+‘Ah, poor Yorick, said he, joyful
 No should disarm him long ago, That young a soul.
 You see, your Larina is plain, But very dear old soul;
+Its worth of fine and charming soul,
 With clear soul
 The doubts all confused her soul:
 A bowl
@@ -5075,6 +5076,7 @@ XL
 XL
 XL
 XL
+L
 May be, the thought to us is coming Amid poetical a dream
 And where everything’s at freedom? The same yet girl... or its a dream?
 I saw myself in cherished dream
@@ -6068,10 +6070,10 @@ For weeks matchmaker was then coming To all my kin, and due to that
 And now at your will is rather To punish me with scorn for that.
 And what?
 And what?
-And what.
-And what?
 ‘But do you love, indeed, the other?’ -And what? -
 And what? -
+And what.
+And what?
 What?
 She’s taciturn like that Swetlana,.. When came, at window she sat.-
 But never wanted to correct; To censorship I’ll pay my debt;
@@ -6391,30 +6393,13 @@ Believe, I’d never try anew To look for better bride but. you.
 ‘For single winter it will do, At least I’ll credit money you’…
 X U1
 It’s signed by t.a.v.
+V
 Dmitriyev.
-IV
-IV
-IV
-IV
-IV
-IV
-IV
+V
+V
 LIV
-LIV
-All’s now calm; in rooms you hear: Is snoring heavy Pustyakóv
-From two to thirty years on; The district dandy Petushkóv,
-LV
-LV
-Griboyedov
-(Of course you him alredy met;) And counsellor retired Flyánov,
-V
-V
-V
-V
-V
-V
-V
 XLIV
+LIV
 XLIII, XLIV
 XLIV
 XLIV
@@ -6423,9 +6408,18 @@ XLIV
 XIII, XIV
 XIV
 XIV
+XXIV
 XIV
 XIV
 XIV
+XXXIV
+XXXIV
+XXXIV
+XXXIV
+XXXIV
+XXXIV
+XXXIV
+XXXIV
 XIV
 XXIV
 XXIV
@@ -6433,35 +6427,40 @@ XXIV
 XXIV
 XXIV
 XXIV
-XXIV
-XXXIV
-XXXIV
-XXXIV
-XXXIV
-XXXIV
-XXXIV
-XXXIV
-XXXIV
+All’s now calm; in rooms you hear: Is snoring heavy Pustyakóv
 With own heavy hall, his dear; Gvozdín, Buyánov, Petushkóv
+From two to thirty years on; The district dandy Petushkóv,
 XLV
 XLV
 XLV
 XLV
 XLV
 XLV
-XV
-XV
-XV
-XV
-XV
+Griboyedov
+(Of course you him alredy met;) And counsellor retired Flyánov,
+V
+IV
+IV
+IV
+V
+V
+IV
+IV
+IV
+IV
+LV
+LV
+XXV
 XV
 XV
 XXV
+XV
 XXV
+XV
+XV
 XXV
-XXV
-XXV
-XXV
+XV
+XV
 XXV
 XXV
 XXXV
@@ -6471,6 +6470,9 @@ XXXV
 XXXV
 XXXV
 XXXV
+XXV
+XXV
+V
 I love him, he’s my kin in-law.
 In front of them when they were near White-stone Moscow they saw:
 Lensky saw
@@ -6511,28 +6513,12 @@ This kind of book yet doesn’t show The writer’s fancies in a row,
 Two pistols in a row,
 She near parents could bloom, Like lilies in the valley grow,
 Tatyana’s interest is affected By melting on the fire wax:
-IX
-CHAPTER SIX
-IX
-IX
-IX
-IX
-IX
-IX
+XLIX
+XLIX
+XLIX
+XLIX
 LIX
-LX
-X
-X
-VIII, IX, X
-X
-X
-X
-X
-X
-XLIX
-XLIX
-XLIX
-XLIX
+CHAPTER SIX
 XIX
 XIX
 XIX
@@ -6541,28 +6527,42 @@ XIX
 XIX
 XIX
 XIX
-XXIX
-XXIX
-XXIX
-XXIX
-XXIX
-XXIX
-XXIX
-XXIX
-XXXIX
 XXXVIII, XXXIX
 XXXVII, XXXVIII, XXXIX
 XXXIX
+XXIX
+XXIX
+XXIX
+XXIX
+XXIX
+XXIX
+XXIX
 XXXIX
+XXIX
+XXXIX
+X
+IX
+IX
+IX
+IX
+IX
+IX
+IX
+LX
 XX
+VIII, IX, X
 XX
-XX
-XX
-XX
-XX
-XX
-XX
+X
+X
+X
+X
+X
+X
 XXX
+XX
+XX
+XX
+XX
 XXX
 XXX
 XXX
@@ -6571,6 +6571,8 @@ XXX
 XXX
 XXX
 XXXVIII, XXX1X
+XX
+XX
 We haven’t any decent road, Forgotten bridges all decay.
 And in a day
 But at the window, not gay, Was mutely sitting all the day.
@@ -10159,6 +10161,7 @@ He’s blessed, who feast of life was leaving In time, not drinking to the end
 All wine from goblet at his hand Was not till end life’s novel reading,
 But suddenly could part from it, As I from my Onegin did,
 THE END
+
 
 ************************************************************************************************
 
