@@ -37,81 +37,84 @@ int CompareDown(const void* value_a, const void* value_b)
 
 int CompareStrsEnd(const void* a, const void* b)
 {
-    const char* s1 = *(const char**) a;
-    const char* s2 = *(const char**) b;
+    Line s1 = *(Line*) a;
+    Line s2 = *(Line*) b;
 
-    size_t i1 = strlen(s1) - 1;
-    size_t i2 = strlen(s2) - 1;
+    size_t i1 = s1.length;
+    size_t i2 = s2.length;
 
-    s1 += i1;
-    s2 += i2;
+    s1.line += i1;
+    s2.line += i2;
 
     while (i1 * i1 + i2 * i2)
     {
-        while((i1) && !isalpha((unsigned char)*s1))
+        while((i1) && !isalpha((unsigned char)*(s1.line)))
         {
             --i1;
-            --s1;
+            --(s1.line);
         }
-        while((i2) && !isalpha((unsigned char)*s2))
+        while((i2) && !isalpha((unsigned char)*(s2.line)))
         {
             --i2;
-            --s2;
+            --(s2.line);
         }
 
         if(i1 + i2 < 2) break;
 
-        int c1 = tolower((unsigned char)*s1);
-        int c2 = tolower((unsigned char)*s2);
+        int c1 = tolower((unsigned char)*(s1.line));
+        int c2 = tolower((unsigned char)*(s2.line));
 
         if (c1 != c2) return c1 - c2;
 
-        --s1;
+        --(s1.line);
         --i1;
 
-        --s2;
+        --(s2.line);
         --i2;
     }
 
-    while((i1) && !isalpha((unsigned char)*s1))
+    while((i1) && !isalpha((unsigned char)*(s1.line)))
     {
-        --s1;
+        --(s1.line);
         --i1;
     }
-    while((i2) && !isalpha((unsigned char)*s2))
+    while((i2) && !isalpha((unsigned char)*(s2.line)))
     {
-        --s2;
+        --(s2.line);
         --i2;
     }
 
-    return (unsigned char)* s1 - (unsigned char)* s2;
+    return (unsigned char)*(s1.line) - (unsigned char)*(s2.line);
 }
 
 int CompareStrsStart(const void* a, const void* b)
 {
-    const char* s1 = *(const char**) a;
-    const char* s2 = *(const char**) b;
+    Line s1 = *(Line*) a;
+    Line s2 = *(Line*) b;
 
-    while (*s1 && *s2)
+    while (*(s1.line) && *(s2.line))
     {
-        while(*s1 && !isalpha((unsigned char)*s1)) s1++;
-        while(*s2 && !isalpha((unsigned char)*s2)) s2++;
+        while(*(s1.line) && !isalpha((unsigned char)*(s1.line))) (s1.line)++;
+        while(*(s2.line) && !isalpha((unsigned char)*(s2.line))) (s2.line)++;
 
-        if(!*s1 || !*s2) break;
+        if(!*(s1.line) || !*(s2.line)) break;
 
-        int c1 = tolower((unsigned char)*s1);
-        int c2 = tolower((unsigned char)*s2);
+        int c1 = tolower((unsigned char)*(s1.line));
+        int c2 = tolower((unsigned char)*(s2.line));
 
         if (c1 != c2) return c1 - c2;
 
-        s1++;
-        s2++;
+        (s1.line)++;
+        (s2.line)++;
     }
 
-    while(*s1 && !isalpha((unsigned char)*s1)) s1++;
-    while(*s2 && !isalpha((unsigned char)*s2)) s2++;
+    while(*(s1.line) && !isalpha((unsigned char)*(s1.line))) (s1.line)++;
+    while(*(s2.line) && !isalpha((unsigned char)*(s2.line))) (s2.line)++;
 
-    return (unsigned char)* s1 - (unsigned char)* s2;
+    return (unsigned char)* (s1.line) - (unsigned char)* (s2.line);
 }
 
 #endif // COMPARATORS_H_INCLUDED
+
+//function
+//struct
